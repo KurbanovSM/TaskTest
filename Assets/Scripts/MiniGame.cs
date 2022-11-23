@@ -20,7 +20,7 @@ public class MiniGame : MonoBehaviour, IMinigameClientHandler
 
     private const int PERCENTAGE_WIDTH_PERFECT_ZONE = 10;
     private const int PERCENTAGE_WIDTH_SUCCESSFUL_ZONE= 30;
-    private const float KNOB_SPEED = 8;
+    private const float KNOB_SPEED = 100;
 
     private bool isStopMove = false;
 
@@ -84,7 +84,7 @@ public class MiniGame : MonoBehaviour, IMinigameClientHandler
 
         while (!isStopMove)
         {
-            knob.anchoredPosition = Vector2.MoveTowards(knob.anchoredPosition, target, knobSpeed);
+            knob.anchoredPosition = Vector2.MoveTowards(knob.anchoredPosition, target, knobSpeed * Time.deltaTime);
 
             if (Vector2.Distance(knob.anchoredPosition, target) < 1)
             {
